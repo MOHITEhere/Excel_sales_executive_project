@@ -2,7 +2,7 @@ Sales Executive Dashboard (Excel Project)
 
  Overview
 
-This project is an interactive Sales Executive Dashboard built in Microsoft Excel** using Pivot Tables, Slicers, Charts, and VBA automation.
+This project is an interactive Sales Executive Dashboard built in Microsoft Excel using Pivot Tables, Slicers, Charts, and VBA automation.
 
 It helps track:
 
