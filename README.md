@@ -38,8 +38,6 @@ Interactive Slicer (Region Filter)
  VBA Automation
   Automatically connects/disconnects Pivot Tables from slicers.
 
-
-
  Tech Stack
 
  Microsoft Excel
@@ -107,7 +105,7 @@ Project Structure
  Sales-Dashboard
  ┣  README.md
  ┣  Sales_Dashboard.xlsx
- ┗  image(1).png
+ ┗  dashboard_sales.png
 ```
 
 
