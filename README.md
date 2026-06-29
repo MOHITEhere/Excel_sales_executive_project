@@ -1,6 +1,6 @@
-# Sales Executive Dashboard — Excel Project
+# Sales Executive Dashboard — Excel + VBA Project
 
-An interactive Sales Executive Dashboard built in Microsoft Excel using Pivot Tables, Slicers, Charts, and VBA automation to track sales performance, target achievement, and regional breakdowns dynamically.
+An interactive Excel dashboard built to track the daily sales performance of 141 sales executives across 8 regions in India. The dashboard displays Total Sales, Target Hit %, and Target Away % with dynamic region-based filtering using slicers and VBA-powered checkbox control.
 
 ---
 
@@ -12,33 +12,55 @@ An interactive Sales Executive Dashboard built in Microsoft Excel using Pivot Ta
 
 ## Problem Statement
 
-Sales managers need a quick, dynamic view of how executives are performing against targets — broken down by region and metric. This dashboard provides that in a single Excel file with no external dependencies, making it portable and easy to share across teams.
+A sales organization with 141 field executives spread across Mumbai, Delhi, Nagpur, Chennai, Pune, Patna, Ranchi, and Surat needed a single-view performance tracker. Managers required the ability to switch between different KPI views and filter by region without navigating multiple sheets.
+
+This dashboard solves that with three switchable views, a shared slicer, and VBA automation to keep each view independent.
 
 ---
 
-## Features
+## Dataset
 
-**Interactive Region Filter**
-Filter all charts simultaneously by city (Chennai, Delhi, Mumbai, etc.) using a single slicer.
+| Property | Value |
+|---|---|
+| Executives Tracked | 141 |
+| Regions | Mumbai, Delhi, Nagpur, Chennai, Pune, Patna, Ranchi, Surat |
+| Tracking Period | 5 Days (Day 1 to Day 5) |
+| Target per Executive | 500 units |
+| Data Source | RAW DATA sheet (Excel) |
 
-**3 Dashboard Views via Checkboxes**
-- Dashboard 1 — Total Sales
-- Dashboard 2 — Target Hit %
-- Dashboard 3 — Target Away %
+### Columns
 
-Each dashboard can be enabled or disabled independently using checkboxes, keeping the view clean.
-
-**Visualizations**
-- Bar Chart — Sales comparison across executives
-- Pie Chart — Target distribution
-- Line Chart — Target gap trend
-
-**VBA Automation**
-Checkboxes are linked to cells. A macro dynamically connects or disconnects Pivot Tables from the slicer based on checkbox state — so only the active dashboard responds to filtering.
+| Column | Description |
+|---|---|
+| Emp Code | Unique employee ID (e.g. Mum-TCL001) |
+| Sales Executive | Executive name |
+| Region | City of operation |
+| Day 1 – Day 5 | Daily sales figures |
+| Total Sales | Sum of Day 1 to Day 5 |
+| Target | Fixed target of 500 units |
+| Target Hit % | Total Sales / Target |
+| Away From Target % | 1 - Target Hit % |
 
 ---
 
-## VBA Logic
+## Dashboard Views
+
+All three views share the same region slicer. Checkboxes on the dashboard enable or disable which Pivot Table responds to the slicer at any time.
+
+### Dashboard 1 — Total Sales
+Shows total units sold per executive. Used to identify top and bottom performers by raw output.
+
+### Dashboard 2 — Target Hit %
+Shows what percentage of the 500-unit target each executive has achieved. Helps managers see who is on track.
+
+### Dashboard 3 — Target Away %
+Shows how far each executive is from their target. Useful for identifying who needs intervention.
+
+---
+
+## VBA Automation
+
+The core macro dynamically connects or disconnects each Pivot Table from the region slicer based on checkbox state. This ensures only the active dashboard view responds to filtering.
 
 ```vba
 Sub Macro3()
@@ -78,7 +100,7 @@ Sub Macro3()
 End Sub
 ```
 
-**What this does:** Checks each checkbox cell value (TRUE/FALSE) and connects or disconnects the corresponding Pivot Table from the region slicer — making each dashboard view fully independent and dynamic.
+Each checkbox is linked to a cell (A1, D1, G1, J1). When a checkbox is ticked, the cell turns TRUE and the macro connects that Pivot Table to the slicer. Unticking disconnects it — so filtering one view does not affect the others.
 
 ---
 
@@ -86,8 +108,8 @@ End Sub
 
 | Tool | Purpose |
 |---|---|
-| Microsoft Excel | Dashboard, Pivot Tables, Charts, Slicers |
-| VBA (Visual Basic for Applications) | Dynamic slicer-pivot table control |
+| Microsoft Excel (.xlsm) | Dashboard, Pivot Tables, Charts, Slicers |
+| VBA (Visual Basic for Applications) | Dynamic slicer-pivot table connection control |
 
 ---
 
@@ -95,7 +117,7 @@ End Sub
 
 ```
 Excel_sales_executive_project/
-├── sales_executive project.xlsm    # Main Excel file with dashboard and macros
+├── sales_executive project.xlsm    # Main workbook with RAW DATA and DASH sheets
 ├── dashboard_sales.png             # Dashboard screenshot
 └── README.md
 ```
@@ -104,18 +126,10 @@ Excel_sales_executive_project/
 
 ## Key Learnings
 
-- Advanced Excel dashboard design with multiple views
-- Slicer and Pivot Table integration across sheets
-- VBA automation for dynamic dashboard control
-- Data visualization best practices in Excel
-
----
-
-## Use Cases
-
-- Sales performance tracking and reporting
-- Interview portfolio project demonstrating Excel + VBA skills
-- Template for business reporting dashboards
+- Pivot Table design and slicer integration across multiple dashboards in one sheet
+- VBA macro to dynamically link and unlink Pivot Tables from a shared slicer
+- Checkbox-to-cell linking for interactive dashboard control
+- Performance KPI design: absolute sales, target hit %, and gap analysis
 
 ---
 
